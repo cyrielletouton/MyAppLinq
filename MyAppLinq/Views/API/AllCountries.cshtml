@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "AllCountries";
+}
+
+<h2>Tous les pays</h2>
+<ul>
+    @foreach (var country in ViewBag.Countries)
+    {
+        <li>@country.name</li>
+    }
+</ul>
