@@ -23,9 +23,18 @@ namespace MyAppLinq.Controllers
             return View();
         }
 
-        // GET: API/Details/5
-        public ActionResult Details(int id)
+        // GET: API/Country/Spain
+        public ActionResult Country(string name)
         {
+            var webClient = new System.Net.WebClient();
+            //name = Request["SimpleProp1"];
+            var json = webClient.DownloadString("https://travelbriefing.org/" + name + "?format=json");
+            var jsonCountry = JObject.Parse(json);
+
+            //var allCountries = from country in arrayCountries
+            //                   select country;
+
+            ViewBag.Country = jsonCountry;
             return View();
         }
 

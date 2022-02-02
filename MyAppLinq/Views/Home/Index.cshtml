@@ -4,8 +4,11 @@
 
 <div class="jumbotron">
     <h1>Mon application avec LINQ</h1>
-    <p class="lead">Test de Julien à nouveau.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Voir plus &raquo;</a></p>
+    <p class="lead">Trouve des infos sur un pays.</p>
+    <form action="@Url.Action("Country", "API")" method="get">
+        <input type="text" name="name">
+        <input class="btn btn-primary btn-lg" type="submit" value="Chercher &raquo">
+    </form>
 </div>
 
 <div class="row">

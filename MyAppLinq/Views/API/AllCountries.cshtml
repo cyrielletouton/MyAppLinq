@@ -7,6 +7,6 @@
 <ul>
     @foreach (var country in ViewBag.Countries)
     {
-        <li>@country.name</li>
+        <li><a href=@Url.Action("Country", "API", new { name = country.name })>@country.name</a></li>
     }
 </ul>

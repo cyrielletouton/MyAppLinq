@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Country";
+}
+
+<h2>@ViewBag.Country.names.name</h2>
+<p>Timezone : @ViewBag.Country.timezone.name</p>
+
+<p>Langues :</p>
+<ul>
+    @foreach (var language in ViewBag.Country["language"])
+    {
+        <li>@language.language</li>
+    }
+</ul>
+
+<p>Electricité (voltage) : @ViewBag.Country.electricity.voltage</p>
+<p>Electricité (frequency) : @ViewBag.Country.electricity.frequency</p>
+
+<p>Téléphone (préfixe) : @ViewBag.Country.telephone.calling_code</p>
+<p>Téléphone police : @ViewBag.Country.telephone.police</p>
+<p>Téléphone ambulance : @ViewBag.Country.telephone.ambulance</p>
+<p>Téléphone pompier: @ViewBag.Country.telephone.fire</p>
+
+<p>Vaccinations :</p>
+<ul>
+    @foreach (var vaccination in ViewBag.Country["vaccinations"])
+    {
+        <li>@vaccination.name</li>
+    }
+</ul>
+
+<p>Monnaie : @ViewBag.Country.currency.name</p>
