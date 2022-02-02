@@ -13,20 +13,23 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>TEST 1</h2>
+        <h2>EUROPE</h2>
         <p>
-            Description premier paragraphe.
+            Voir tous les pays d'Europe.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Voir plus &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("AllEuropeCountries", "API")">Voir &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>TEST 2</h2>
-        <p>Description deuxième paragraphe.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Voir plus &raquo;</a></p>
+        <h2>VOYAGES PREVUS</h2>
+        <p>Voir tous les voyages proposés.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Travels", "Travel")">Voir &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>TEST 3</h2>
-        <p>Description troisième paragraphe.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Voir plus &raquo;</a></p>
+        <h2>BUDGET VOYAGE</h2>
+        <p>Trouver un voyage avec un budget maximum.</p>
+        <form action="@Url.Action("TravelsMaxCost", "Travel")" method="get">
+            <input type="text" name="cost">
+            <input class="btn btn-default" type="submit" value="Voir &raquo;">
+        </form>
     </div>
 </div>

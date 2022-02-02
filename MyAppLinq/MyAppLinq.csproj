@@ -122,9 +122,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\APIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TravelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Collections\ListPersonData.cs" />
+    <Compile Include="Models\Collections\ListTravelData.cs" />
+    <Compile Include="Models\Collections\Person.cs" />
+    <Compile Include="Models\Collections\Travel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -165,10 +170,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\API\AllCountries.cshtml" />
     <Content Include="Views\API\Country.cshtml" />
+    <Content Include="Views\API\AllEuropeCountries.cshtml" />
+    <Content Include="Views\Travel\Travels.cshtml" />
+    <Content Include="Views\Travel\TravelsMaxCost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

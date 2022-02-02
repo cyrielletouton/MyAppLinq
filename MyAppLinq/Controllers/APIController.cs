@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace MyAppLinq.Controllers
@@ -23,7 +24,7 @@ namespace MyAppLinq.Controllers
             return View();
         }
 
-        // GET: API/Country/Spain
+        // GET: Country
         public ActionResult Country(string name)
         {
             var webClient = new System.Net.WebClient();
@@ -35,6 +36,21 @@ namespace MyAppLinq.Controllers
             //                   select country;
 
             ViewBag.Country = jsonCountry;
+            return View();
+        }
+
+        // GET: Europe Countries
+        public ActionResult AllEuropeCountries()
+        {
+            var webClient = new System.Net.WebClient();
+            var json = webClient.DownloadString("https://travelbriefing.org/countries.json");
+            var arrayCountries = JArray.Parse(json);
+
+            var allCountries = from country in arrayCountries
+                                   //where country["url"].Values("timezone").Contains("Europe")
+                                   select country;
+
+            ViewBag.Countries = allCountries;
             return View();
         }
 
