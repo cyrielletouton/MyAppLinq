@@ -10,7 +10,6 @@ namespace MyAppLinq.Models.Collections
         public int TravelId { get; set; }
         public string Name { get; set; }
         public int Cost { get; set; }
-
         public int PersonId { get; set; }
 
         public Travel(int travelId, string name, int cost, int personId)
@@ -20,5 +19,7 @@ namespace MyAppLinq.Models.Collections
             Cost = cost;
             PersonId = personId;
         }
+
+        public Travel() { }
     }
 }

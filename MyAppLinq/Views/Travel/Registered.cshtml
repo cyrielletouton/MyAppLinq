@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Registered";
+}
+
+<h2>Inscriptions</h2>
+<ul>
+    @foreach (var travel in ViewBag.Registered)
+    {
+        <li>@travel</li>
+    }
+</ul>

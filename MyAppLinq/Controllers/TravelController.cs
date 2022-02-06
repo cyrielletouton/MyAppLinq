@@ -16,9 +16,8 @@ namespace MyAppLinq.Controllers
             var maliste = ListTravelData.ListTravel;
 
             //Definir notre requête
-            //Syntaxe méthode
             var TravelDefinitionQueryMethod = maliste
-                .Select(travel => $"Travel n°{travel.TravelId} : {travel.Name}");
+                .Select(travel => $"Voyage n°{travel.TravelId} : {travel.Name}");
 
             ViewBag.Travels = TravelDefinitionQueryMethod;
             return View();
@@ -28,11 +27,8 @@ namespace MyAppLinq.Controllers
         // GET: Travels with maximum cost
         public ActionResult TravelsMaxCost(int cost)
         {
-            //DataSource
             var maliste = ListTravelData.ListTravel;
 
-            //Definir notre requête
-            //Syntaxe méthode
             var rechercheQuery =
                 from travel in maliste
                 where travel.Cost < cost
@@ -42,6 +38,42 @@ namespace MyAppLinq.Controllers
             ViewBag.Travels = rechercheQuery;
             return View();
 
+        }
+
+        // POST: Create a new trip
+        [HttpPost]
+        public ActionResult Create(Travel travel)
+        {
+            string name = travel.Name;
+            int cost = travel.Cost;
+            int personId = travel.PersonId;
+
+            try
+            {
+                var maliste = ListTravelData.ListTravel;
+                maliste.Add(new Travel(maliste.Count + 1, name, cost, personId));
+
+                return RedirectToAction("Travels");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // See which trip a participant is registered for
+        public ActionResult Registered(string name)
+        {
+            var malisteTravel = ListTravelData.ListTravel;
+            var malistePerson = ListPersonData.ListPerson;
+
+            var request = from person in malistePerson
+                          where person.Name.Contains(name)
+                          join travel in malisteTravel on person.PersonId equals travel.PersonId
+                          select $"{person.Name} est inscrit à : {travel.Name}.";
+
+            ViewBag.Registered = request;
+            return View();
         }
     }
 }

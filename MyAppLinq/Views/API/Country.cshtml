@@ -4,9 +4,9 @@
 }
 
 <h2>@ViewBag.Country.names.name</h2>
-<p>Timezone : @ViewBag.Country.timezone.name</p>
+<p><strong>Timezone :</strong> @ViewBag.Country.timezone.name</p>
 
-<p>Langues :</p>
+<p><strong>Langues :</strong></p>
 <ul>
     @foreach (var language in ViewBag.Country["language"])
     {
@@ -14,20 +14,27 @@
     }
 </ul>
 
-<p>Electricité (voltage) : @ViewBag.Country.electricity.voltage</p>
-<p>Electricité (frequency) : @ViewBag.Country.electricity.frequency</p>
+<p><strong>Electricité (voltage) :</strong> @ViewBag.Country.electricity.voltage</p>
+<p><strong>Electricité (frequency) :</strong> @ViewBag.Country.electricity.frequency</p>
 
-<p>Téléphone (préfixe) : @ViewBag.Country.telephone.calling_code</p>
-<p>Téléphone police : @ViewBag.Country.telephone.police</p>
-<p>Téléphone ambulance : @ViewBag.Country.telephone.ambulance</p>
-<p>Téléphone pompier: @ViewBag.Country.telephone.fire</p>
+<p><strong>Téléphone (préfixe) :</strong> +@ViewBag.Country.telephone.calling_code</p>
+<p><strong>Téléphone police :</strong> +@ViewBag.Country.telephone.police</p>
+<p><strong>Téléphone ambulance :</strong> +@ViewBag.Country.telephone.ambulance</p>
+<p><strong>Téléphone pompier:</strong> +@ViewBag.Country.telephone.fire</p>
 
-<p>Vaccinations :</p>
-<ul>
-    @foreach (var vaccination in ViewBag.Country["vaccinations"])
-    {
-        <li>@vaccination.name</li>
-    }
-</ul>
+<p><strong>Vaccinations :</strong></p>
+@if (ViewBag.Country["vaccinations"].Count == 0)
+{
+    <p>Pas de vaccination requise.</p>
+}
+else
+{
+    <ul>
+        @foreach (var vaccination in ViewBag.Country["vaccinations"])
+        {
+            <li>@vaccination.name</li>
+        }
+    </ul>
+}
 
-<p>Monnaie : @ViewBag.Country.currency.name</p>
+<p><strong>Monnaie :</strong> @ViewBag.Country.currency.name</p>

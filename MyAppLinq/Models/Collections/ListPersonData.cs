@@ -14,7 +14,7 @@ namespace MyAppLinq.Models.Collections
             new Person(3, "Victor"),
             new Person(4, "Raphael"),
             new Person(5, "Marie"),
-            new Person(6, "Lea"),
+            new Person(6, "Nathan"),
             new Person(7, "Laurie"),
             new Person(8, "Thomas"),
             new Person(9, "Damien"),

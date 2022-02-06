@@ -13,23 +13,26 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>EUROPE</h2>
-        <p>
-            Voir tous les pays d'Europe.
-        </p>
-        <p><a class="btn btn-default" href="@Url.Action("AllEuropeCountries", "API")">Voir &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
         <h2>VOYAGES PREVUS</h2>
         <p>Voir tous les voyages proposés.</p>
-        <p><a class="btn btn-default" href="@Url.Action("Travels", "Travel")">Voir &raquo;</a></p>
+        <p><a class="btn btn-primary" href="@Url.Action("Travels", "Travel")">Voir &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>BUDGET VOYAGE</h2>
         <p>Trouver un voyage avec un budget maximum.</p>
         <form action="@Url.Action("TravelsMaxCost", "Travel")" method="get">
             <input type="text" name="cost">
-            <input class="btn btn-default" type="submit" value="Voir &raquo;">
+            <input class="btn btn-primary" type="submit" value="Voir &raquo;">
+        </form>
+    </div>
+    <div class="col-md-4">
+        <h2>INSCRIPTION PAR PARTICIPANT</h2>
+        <p>Voir à quel voyage est inscrit le participant.</p>
+        <form action="@Url.Action("Registered", "Travel")" method="get">
+            <input type="text" name="name">
+            <input class="btn btn-primary" type="submit" value="Voir &raquo;">
         </form>
     </div>
 </div>
+
+<img class="img-responsive" style="width: 100%" src="~/Media/travel.jpg" alt="voyage" />
